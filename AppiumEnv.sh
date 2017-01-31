@@ -22,13 +22,24 @@ setAlias (){
 	if [ -f ~/.profile ]; then
 		if ! aliasExist ~/.profile ; then
 			addAlias ~/.profile
+			source ~/.profile
 		fi
 	else
 		if ! aliasExist ~/.bash_profile; then
 			addAlias ~/.bash_profile
+			source ~/.bash_profile
 		fi
 	fi
 	echo "Aliases are set. To switch between xcode7 and 8 just type 'xcode7' or 'xcode8'"
+}
+
+installCapsUtil (){ #temp. TODO: replace with sudo gem install yi_appium_caps_util -n /usr/local/bin once gem is published
+	git clone https://github.com/YOU-i-Labs/yi_appium_caps_util
+	cd yi_appium_caps_util
+	gem build yi_appium_caps_util.gemspec
+	sudo gem install yi_appium_caps_util-1.0.0.gem
+	cd ../
+	rm -fr yi_appium_caps_util
 }
 
 ##Checking if xcode developer tools are installed
@@ -136,7 +147,7 @@ echo "**toml installed**"
 
 ##Checking if yi_appium_caps_util gem is installed
 if ! gem list yi_appium_caps_util -i > /dev/null; then
-	sudo gem install yi_appium_caps_util -n /usr/local/bin
+	installCapsUtil
 fi
 
 echo "**** Appium environment setup done ****"
