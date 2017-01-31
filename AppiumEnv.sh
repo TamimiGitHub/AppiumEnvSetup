@@ -13,10 +13,11 @@ addAlias (){
 	echo " " >> $1 #to fix eol issue
     echo "alias xcode7='sudo xcode-select -s /Applications/Xcode7.app'" >> $1
     echo "alias xcode8='sudo xcode-select -s /Applications/Xcode.app'" >> $1
+    echo "alias xcpath='xcode-select -p'" >> $1
 }
 
 aliasExist (){
-	grep -E "sudo xcode-select -s |sudo xcode-select --switch" "$1"> /dev/null
+	grep -E "sudo xcode-select -s |sudo xcode-select --switch | xcode-select -p" "$1"> /dev/null
 }
 
 setAlias (){
