@@ -10,6 +10,7 @@
 
 ##Functions used in script
 addAlias (){
+	echo " " >> $1 #to fix eol issue
     echo "alias xcode7='sudo xcode-select -s /Applications/Xcode7.app'" >> $1
     echo "alias xcode8='sudo xcode-select -s /Applications/Xcode.app'" >> $1
 }
@@ -31,9 +32,11 @@ setAlias (){
 		fi
 	fi
 	echo "Aliases are set. To switch between xcode7 and 8 just type 'xcode7' or 'xcode8'"
+	echo "The current running xcode version is ('xcode-select -p'): "
+	xcode-select -p
 }
 
-installCapsUtil (){ #temp. TODO: replace with sudo gem install yi_appium_caps_util -n /usr/local/bin once gem is published
+installCapsUtil (){ #temp. TODO: replace with 'sudo gem install yi_appium_caps_util -n /usr/local/bin' once gem is published
 	git clone https://github.com/YOU-i-Labs/yi_appium_caps_util
 	cd yi_appium_caps_util
 	gem build yi_appium_caps_util.gemspec
