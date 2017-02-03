@@ -164,7 +164,7 @@ echo "Checking if Xcode7 is installed"
 echo "."
 echo "."
 if [ ! -d /Applications/Xcode7.app ]; then
-	echo "Download xcode7! Please go to https://developer.apple.com/services-account/download?path=/Developer_Tools/Xcode_7.3.1/Xcode_7.3.1.dmg"
+	echo -e "\033[1;31m Download xcode7! Please go to https://developer.apple.com/services-account/download?path=/Developer_Tools/Xcode_7.3.1/Xcode_7.3.1.dmg \033[0m"
 else
 	setAlias
 fi
