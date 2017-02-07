@@ -4,8 +4,10 @@
 #appium related activities 
 
 ### HOW TO ###
-# 1. Make this script executable by typing `sudo chmod +x AppiumEnv.sh` from your terminal
-# 2. Run script by typing `./AppiumEnv.sh`
+# 1. Open Terminal
+# 2. Navigate to directory where the script was downloaded in `cd ~/Downloads`
+# 3. Make this script executable by typing `sudo chmod +x AppiumEnv.sh` from your terminal
+# 4. Run script by typing `./AppiumEnv.sh`
 
 
 ##Functions used in script
@@ -13,7 +15,7 @@ addAlias (){
 	echo " " >> $1 #to fix eol issue
     echo "alias xcode7='sudo xcode-select -s /Applications/Xcode7.app'" >> $1
     echo "alias xcode8='sudo xcode-select -s /Applications/Xcode.app'" >> $1
-    echo "alias xcpath='xcode-select -p'" >> $1
+    echo "alias xcv='xcodebuild -version'" >> $1
 }
 
 aliasExist (){
@@ -128,6 +130,20 @@ if [ ! -z "$(brew ls --versions libimobiledevice)" ]; then
 	echo "libimobiledevice installed"
 else
 	brew install libimobiledevice
+fi
+
+##Checking if ideviceinstaller is installed
+if [ ! -z "$(brew ls --versions ideviceinstaller)" ]; then
+	echo "ideviceinstaller installed"
+else
+	brew install ideviceinstaller
+fi
+
+##Checking if carthage is installed
+if [ ! -z "$(brew ls --versions carthage)" ]; then
+	echo "carthage installed"
+else
+	brew install carthage
 fi
 
 ##Checking if ios-deploy is installed
