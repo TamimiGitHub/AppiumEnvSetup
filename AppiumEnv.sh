@@ -100,7 +100,7 @@ echo "**Node.js installed**"
 if ! type "appium" > /dev/null; then
 	npm install -g appium@1.6
 fi
-versin=$(npm view appium version)
+version=$(npm view appium version)
 echo "**Appium server installed. Version $version**"
 
 #The following gems are needed for the ruby client
@@ -169,6 +169,12 @@ echo "**toml installed**"
 if ! gem list yi_appium_caps_util -i > /dev/null; then
 	installCapsUtil
 fi
+
+##Checking if rspec gem is installed
+if ! gem list rspec -i > /dev/null; then
+	sudo gem install rspec -n /usr/local/bin
+fi
+echo "**rspec installed**"
 
 echo "**** Appium environment setup done ****"
 echo "**** yi_appium_lib installed ****"
