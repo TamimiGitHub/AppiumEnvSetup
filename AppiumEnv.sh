@@ -187,7 +187,7 @@ echo "."
 echo "."
 if [ ! -d /Applications/Xcode7.app ]; then
 	echo -e "\033[1;31m Download xcode7! Please go to https://developer.apple.com/services-account/download?path=/Developer_Tools/Xcode_7.3.1/Xcode_7.3.1.dmg \033[0m"
-	echo "After downloading Xcode 7, please rerun the script"
+	echo "After downloading Xcode 7, make sure its renamed to 'Xcode7' in your 'Applications' directory. Rerun the script after download"
 else
 	setAlias
 fi
