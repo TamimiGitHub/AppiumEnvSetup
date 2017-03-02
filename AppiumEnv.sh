@@ -34,9 +34,9 @@ setAlias (){
 			source ~/.bash_profile
 		fi
 	fi
-	echo "Aliases are set. To switch between xcode7 and 8 just type 'xcode7' or 'xcode8'"
-	echo "The current running xcode version is ('xcode-select -p'): "
-	xcode-select -p
+	echo "Aliases are set. To switch between Xcode 7 and 8 just type 'xcode7' or 'xcode8'"
+	echo "The current running xcode version is ('xcodebuild -version'): "
+	xcodebuild -version
 }
 
 installCapsUtil (){ #temp. TODO: replace with 'sudo gem install yi_appium_caps_util -n /usr/local/bin' once gem is published
@@ -187,6 +187,7 @@ echo "."
 echo "."
 if [ ! -d /Applications/Xcode7.app ]; then
 	echo -e "\033[1;31m Download xcode7! Please go to https://developer.apple.com/services-account/download?path=/Developer_Tools/Xcode_7.3.1/Xcode_7.3.1.dmg \033[0m"
+	echo "After downloading Xcode 7, please rerun the script"
 else
 	setAlias
 fi
