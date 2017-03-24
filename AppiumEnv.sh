@@ -39,6 +39,7 @@ setAlias (){
 	xcodebuild -version
 }
 
+#Obselete
 installCapsUtil (){ #temp. TODO: replace with 'sudo gem install yi_appium_caps_util -n /usr/local/bin' once gem is published
 	git clone https://github.com/YOU-i-Labs/yi_appium_caps_util
 	cd yi_appium_caps_util
@@ -167,7 +168,8 @@ echo "**toml installed**"
 
 ##Checking if yi_appium_caps_util gem is installed
 if ! gem list yi_appium_caps_util -i > /dev/null; then
-	installCapsUtil
+	sudo gem install yi_appium_caps_util
+	# installCapsUtil
 fi
 
 ##Checking if rspec gem is installed
