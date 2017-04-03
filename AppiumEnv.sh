@@ -130,7 +130,7 @@ echo "**appium_console installed**"
 if [ ! -z "$(brew ls --versions libimobiledevice)" ]; then
 	echo "libimobiledevice installed"
 else
-	brew install libimobiledevice
+	brew install libimobiledevice --HEAD
 fi
 
 ##Checking if ideviceinstaller is installed
