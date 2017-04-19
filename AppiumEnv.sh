@@ -5,14 +5,13 @@
 
 ### HOW TO ###
 # 1. Open Terminal
-# 2. Navigate to directory where the script was downloaded in `cd ~/Downloads`
-# 3. Make this script executable by typing `sudo chmod +x AppiumEnv.sh` from your terminal
-# 4. Run script by typing `./AppiumEnv.sh`
+# 2. Navigate to uswish/tools
+# 3. Run script by typing `./AppiumEnv.sh`
 
 
 ##Functions used in script
 addAlias (){
-	echo " " >> $1 #to fix eol issue
+	echo " " >> $1
     echo "alias xcode7='sudo xcode-select -s /Applications/Xcode7.app'" >> $1
     echo "alias xcode8='sudo xcode-select -s /Applications/Xcode.app'" >> $1
     echo "alias xcv='xcodebuild -version'" >> $1
@@ -37,16 +36,6 @@ setAlias (){
 	echo "Aliases are set. To switch between Xcode 7 and 8 just type 'xcode7' or 'xcode8'"
 	echo "The current running xcode version is ('xcodebuild -version'): "
 	xcodebuild -version
-}
-
-#Obselete
-installCapsUtil (){ #temp. TODO: replace with 'sudo gem install yi_appium_caps_util -n /usr/local/bin' once gem is published
-	git clone https://github.com/YOU-i-Labs/yi_appium_caps_util
-	cd yi_appium_caps_util
-	gem build yi_appium_caps_util.gemspec
-	sudo gem install yi_appium_caps_util-1.0.0.gem
-	cd ../
-	rm -fr yi_appium_caps_util
 }
 
 ##Checking if xcode developer tools are installed
@@ -127,8 +116,8 @@ echo "**appium_console installed**"
 # The following are needed for the yi_appium_lib gem
 
 ##Checking if libimobiledevice is installed
-if [ ! -z "$(brew ls --versions libimobiledevice)" ]; then
-	echo "libimobiledevice installed"
+if [ "$(brew ls --versions libimobiledevice | awk '{print $2}')" == "HEAD" ]; then
+	echo "libimobiledevice installed: HEAD"
 else
 	brew install libimobiledevice --HEAD
 fi
